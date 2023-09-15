@@ -33,7 +33,7 @@ namespace Kakao_Chat_Analyzer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("why do not work this");
+            MessageBox.Show("is this ok ?");
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -71,11 +71,6 @@ namespace Kakao_Chat_Analyzer
 
         }
 
-        private void checkBox8_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
@@ -92,6 +87,13 @@ namespace Kakao_Chat_Analyzer
             {
                 e.Effect = DragDropEffects.Copy;
             }
+        }
+
+        private int Words_Counter(string str)
+        {
+            // 한 문장이 통으로 들어오면 대화에서 글자 수를 추출하는 함수
+
+            return 0;
         }
     }
 }
