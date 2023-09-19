@@ -26,14 +26,37 @@ namespace Kakao_Chat_Analyzer
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length > 0 && File.Exists(files[0]))
+            {
+                string filePath = files[0];
+                this.textBox1.Text = filePath;
+            }
+        }
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("is this ok ?");
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -69,31 +92,6 @@ namespace Kakao_Chat_Analyzer
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void Form1_DragDrop(object sender, DragEventArgs e)
-        {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            if (files.Length > 0 && File.Exists(files[0]))
-            {
-                string filePath = files[0];
-                this.textBox1.Text = filePath;
-            }
-        }
-
-        private void Form1_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-        }
-
-        private int Words_Counter(string str)
-        {
-            // 한 문장이 통으로 들어오면 대화에서 글자 수를 추출하는 함수
-
-            return 0;
         }
     }
 }
